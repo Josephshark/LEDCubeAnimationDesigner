@@ -4,13 +4,23 @@ import numpy as np
 
 plt.style.use('_mpl-gallery')
 
+# Pick a n for an nxnxn cube
+n = 3
+
+#Populate an array
+x = np.array([])
+starting_index = 0
+for index in range(n*n*n):
+    # if the index has reached 
+    if (index+1)%9 == 0:
+
+
+
+
 # Make data
-np.random.seed(19680801)
-n = 100
-rng = np.random.default_rng()
-xs = rng.uniform(23, 32, n)
-ys = rng.uniform(0, 100, n)
-zs = rng.uniform(-50, -25, n)
+xs = np.array([0, 1, 2])
+ys = np.array([0, 1, 2])
+zs = np.array([0, 1, 2])
 
 # Plot
 fig, ax = plt.subplots(subplot_kw={"projection": "3d"})
