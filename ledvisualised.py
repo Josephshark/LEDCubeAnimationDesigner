@@ -1,30 +1,19 @@
 #https://matplotlib.org/stable/plot_types/3D/scatter3d_simple.html
 import matplotlib.pyplot as plt
-import numpy as np
+from ledcube import create_cube
 
 plt.style.use('_mpl-gallery')
 
-# Pick a n for an nxnxn cube
-n = 3
-
-#Populate an array
-x = np.array([])
-starting_index = 0
-for index in range(n*n*n):
-    # if the index has reached 
-    if (index+1)%9 == 0:
-
-
-
 
 # Make data
-xs = np.array([0, 1, 2])
-ys = np.array([0, 1, 2])
-zs = np.array([0, 1, 2])
+n = 5
+xs, ys, zs = create_cube(n)
+print(f"{xs}\n{ys}\n{zs}")
 
 # Plot
 fig, ax = plt.subplots(subplot_kw={"projection": "3d"})
-ax.scatter(xs, ys, zs)
+ax.scatter(xs, ys, zs,c = zs)
+
 
 ax.set(xticklabels=[],
        yticklabels=[],
