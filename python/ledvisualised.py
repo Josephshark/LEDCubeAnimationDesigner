@@ -8,7 +8,7 @@ plt.style.use('_mpl-gallery')
 # Make data
 n = 5
 xs, ys, zs = create_cube(n)
-print(f"{xs}\n{ys}\n{zs}")
+print(f"X: {xs}.\n Y: {ys}.\n Z: {zs}")
 
 # Plot
 fig, ax = plt.subplots(subplot_kw={"projection": "3d"})
