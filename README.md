@@ -11,6 +11,10 @@ populate_z
 
 
 ## Log
+
+Created the function that alows an led to be edited.
+More work needs to be done for animation.
+
 For example: Z: [0, 1, 2, 3, 4, 0, ...] will be changed to Z: [0, 0, 0, 0, 0, 1, 2, ...] and the result will be anylyzed.
 For example currently the z is being used as the color so a section of its repeating pattern will be changed.
 To figure this out the color map will be played with and the result recorded.
