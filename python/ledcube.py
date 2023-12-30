@@ -17,7 +17,7 @@ class LedCube:
         self.y = y
         self.z = z
 
-    def view(self):
+    def show(self):
         """
         Description:
             Method that diplays the object using matplot.

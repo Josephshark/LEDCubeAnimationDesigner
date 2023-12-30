@@ -3,6 +3,6 @@
 import ledcube as lc
 
 n = 5
-
 cube = lc.LedCube(n)
-print (cube.x)
+
+cube.show()
