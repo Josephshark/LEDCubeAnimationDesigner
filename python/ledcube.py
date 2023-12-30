@@ -33,7 +33,7 @@ class LedCube:
         yticklabels=[],
         zticklabels=[])
 
-        plt.show(block=False)
+        plt.show()
 
     def create_cube(self, n):
         """
