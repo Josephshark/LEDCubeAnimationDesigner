@@ -11,9 +11,9 @@ class LedCube:
         Returns:
             An LedCube object.
         """
-        x, y, z = self.create_xyz(n)
+        x, y, z, b= self.create_cube(n)
         self.n = n
-        self.brightness = np.ones(self.n**3)
+        self.brightness = b
         self.x = x
         self.y = y
         self.z = z
@@ -35,7 +35,7 @@ class LedCube:
 
         plt.show()
 
-    def create_xyz(self, n):
+    def create_cube(self, n):
         """
         Description: 
             Creates a matrix of a nxnxn cube suitable for maatplot 3d.
@@ -106,7 +106,11 @@ class LedCube:
             count += 1
             index_of_interest += 1
 
-        return x, y, z
+        b = []
+        for i in range(n**3):
+            b.append(0)
+
+        return x, y, z, b
 
     def change_led(self, led_xyz, brightness):
         """
@@ -130,14 +134,14 @@ class LedCube:
         for index, entry in enumerate (self.y):
             if entry == y:
                 possible_y_index.append(index)
-
+        
         possible_z_index = []
         for index, entry in enumerate (self.z):
             if entry == z:
-                possible_z_index.append(index)        
-
+                possible_z_index.append(index)
+        
         for index in possible_x_index:
             if index in possible_y_index and index in possible_z_index:
                 cube_index = index
 
-        self.brightness[index] = brightness
+        self.brightness[cube_index] = brightness
