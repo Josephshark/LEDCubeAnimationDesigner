@@ -1,3 +1,6 @@
+# https://matplotlib.org/stable/users/explain/animations/blitting.html
+# https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_animated.html#matplotlib.artist.Artist.set_animated
+
 import numpy as np
 import matplotlib.pyplot as plt
 
