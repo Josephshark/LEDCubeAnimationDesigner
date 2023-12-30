@@ -12,6 +12,11 @@ populate_z
 
 ## Log
 
+Need to design a method for users to design animations. 
+To create this functionality the library documentation will be looked into for isights on its usage.
+An animation needs to be created. The strategy that is being considered is the method of blotting offered by matplotlib.
+
+
 Created the function that alows an led to be edited.
 More work needs to be done for animation.
 
