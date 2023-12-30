@@ -13,6 +13,7 @@ class LedCube:
         """
         x, y, z = self.create_xyz(n)
         self.n = n
+        self.brightness = np.ones(self.n**3)
         self.x = x
         self.y = y
         self.z = z
@@ -24,17 +25,9 @@ class LedCube:
         """
         plt.style.use('_mpl-gallery')
 
-        # Assign the plot values
-        xs = self.x
-        ys = self.y
-        zs = self.z
-
-        # Assign the color
-        color = np.ones(self.n**3)
-
         # Plot
         fig, ax = plt.subplots(subplot_kw={"projection": "3d"})
-        ax.scatter(xs, ys, zs,c = color)
+        ax.scatter(self.x, self.y, self.z,c = self.brightness)
 
         ax.set(xticklabels=[],
         yticklabels=[],
@@ -115,10 +108,36 @@ class LedCube:
 
         return x, y, z
 
-    def change_led(x_a,y_a,z_a, x,y,z):
+    def change_led(self, led_xyz, brightness):
         """
         Description:
-            Changes one of the desired leds accessed like a numpy matrix.
+            Changes one of the desired leds accessed like a numpy matrix. 
+            Assumes a valid location is chosen.
         Param:
-
+            led_xyz - tuple containing the xyz location of the led to change. Ex: (x, y, z).
+            brightness - to set the led to. 0 = off, 1 = max.
+        Returns:
+            Changes the brightness of the specified led.
         """
+        x, y, z = led_xyz
+
+        possible_x_index = []
+        for index, entry in enumerate (self.x):
+            if entry == x:
+                possible_x_index.append(index)
+
+        possible_y_index = []
+        for index, entry in enumerate (self.y):
+            if entry == y:
+                possible_y_index.append(index)
+
+        possible_z_index = []
+        for index, entry in enumerate (self.z):
+            if entry == z:
+                possible_z_index.append(index)        
+
+        for index in possible_x_index:
+            if index in possible_y_index and index in possible_z_index:
+                cube_index = index
+
+        self.brightness[index] = brightness
