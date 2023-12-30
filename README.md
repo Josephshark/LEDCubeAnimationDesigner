@@ -1,14 +1,19 @@
 # LEDCubeAnimationDesigner
 A high level design of a program to create an animation for 5x5x5 LED cube.
 
-## Functions
+## Constructor
+LedCube(n) - Returns an nxnxn LedCube object with the following attributes:
+        
+        n - integer representing the length width and height of the cube.
+        brightness - array containing the brighntess of the leds.
 
-create_cube
+        x - array for encoded x
+        y - array for encoded y
+        z - array for encoded z
 
-populate_x
-populate_y
-populate_z
-
+## Methods
+    .show() shows a map of what leds are on in the stationary cube
+    .change_led([x,y,z], Brightness) changes the brightness of a specified led.
 
 ## Log
 
