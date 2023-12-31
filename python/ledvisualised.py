@@ -1,6 +1,6 @@
 #https://matplotlib.org/stable/plot_types/3D/scatter3d_simple.html
 import ledcube as lc
-import time
+import matplotlib.animation as animation
 
 n = 5
 cube = lc.LedCube(n)

@@ -16,6 +16,12 @@ LedCube(n) - Returns an nxnxn LedCube object with the following attributes:
     .change_led([x,y,z], Brightness) changes the brightness of a specified led.
 
 ## Log
+https://matplotlib.org/stable/users/explain/animations/animations.html#sphx-glr-users-explain-animations-animations-py
+To animate the animation, each frame of the animation will be iterated through in the animation function from matplotlib.
+To animate the animation attribute of the led the animation will first need to be created by some function.
+The animation attribute will contain a list of brightness arrays.
+It has been decided that the methode of making an animation will be to make a new cube attribute called an animation attribute.
+
 
 Need to design a method for users to design animations. 
 To create this functionality the library documentation will be looked into for isights on its usage.
