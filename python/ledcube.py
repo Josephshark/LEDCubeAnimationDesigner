@@ -18,6 +18,13 @@ class LedCube:
         self.y = y
         self.z = z
 
+    def get_cube(self):
+        """
+        Description:
+            Returns the cubes value arrays: (x, y, z, brightness)
+        """
+        return (self.x, self.y, self.z, self.brightness)
+
     def show(self):
         """
         Description:
@@ -27,7 +34,7 @@ class LedCube:
 
         # Plot
         fig, ax = plt.subplots(subplot_kw={"projection": "3d"})
-        ax.scatter(self.x, self.y, self.z,c = self.brightness)
+        ax.scatter(self.x, self.y, self.z, c = self.brightness)
 
         ax.set(xticklabels=[],
         yticklabels=[],
