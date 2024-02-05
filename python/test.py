@@ -1,46 +1,50 @@
-import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+from matplotlib.animation import FuncAnimation
 
-import matplotlib.animation as animation
+# Sample data
+data = np.random.rand(3, 10)  # Replace this with your own data
 
-# Fixing random state for reproducibility
-np.random.seed(19680801)
+# Function to initialize the plot
+def init():
+    ax.scatter(data[0], data[1], data[2])
+    return (ax,)
 
+# Function to update the plot at each frame
+def update(frame):
+    # Update the data for each frame (replace this with your own data update logic)
+    data[0] += 0.1
+    data[1] += 0.2
+    data[2] += 0.3
+    
+    # Clear the previous scatter plot
+    ax.cla()
+    
+    # Plot the updated data
+    ax.scatter(data[0], data[1], data[2])
+    
+    # Set labels for the axes
+    ax.set_xlabel('X-axis')
+    ax.set_ylabel('Y-axis')
+    ax.set_zlabel('Z-axis')
+    
+    return (ax,)
 
-def random_walk(num_steps, max_step=0.05):
-    """Return a 3D random walk as (num_steps, 3) array."""
-    start_pos = np.random.random(3)
-    steps = np.random.uniform(-max_step, max_step, size=(num_steps, 3))
-    walk = start_pos + np.cumsum(steps, axis=0)
-    return walk
-
-
-def update_lines(num, walks, lines):
-    for line, walk in zip(lines, walks):
-        # NOTE: there is no .set_data() for 3 dim data...
-        line.set_data(walk[:num, :2].T)
-        line.set_3d_properties(walk[:num, 2])
-    return lines
-
-
-# Data: 40 random walks as (num_steps, 3) arrays
-num_steps = 30
-walks = [random_walk(num_steps) for index in range(40)]
-
-# Attaching 3D axis to the figure
+# Create a 3D scatter plot
 fig = plt.figure()
-ax = fig.add_subplot(projection="3d")
+ax = fig.add_subplot(111, projection='3d')
 
-# Create lines initially without data
-lines = [ax.plot([], [], [])[0] for _ in walks]
+# Set the initial data
+scatter = ax.scatter(data[0], data[1], data[2])
 
-# Setting the axes properties
-ax.set(xlim3d=(0, 1), xlabel='X')
-ax.set(ylim3d=(0, 1), ylabel='Y')
-ax.set(zlim3d=(0, 1), zlabel='Z')
+# Set labels for the axes
+ax.set_xlabel('X-axis')
+ax.set_ylabel('Y-axis')
+ax.set_zlabel('Z-axis')
 
-# Creating the Animation object
-ani = animation.FuncAnimation(
-    fig, update_lines, num_steps, fargs=(walks, lines), interval=100)
+# Create the animation
+animation = FuncAnimation(fig, update, frames=range(50), init_func=init, blit=False, interval=100)
 
+# Show the animation
 plt.show()
