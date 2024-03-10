@@ -16,6 +16,11 @@ LedCube(n) - Returns an nxnxn LedCube object with the following attributes:
     .change_led([x,y,z], Brightness) changes the brightness of a specified led.
 
 ## Log
+Ok so last time there was this chatgpt code that allowed me to create animations
+So i found out that the items were updated based on what they were last time like a function.
+But it would be cool to be able to create a new array every time. This looks like it would have to be an array that contains the cube arrays and iterate through them. So imma have to figure out how to create this animation array and how to iterate through it over time.
+
+
 Blitting did not work for the 3d iteration. Trying the next thing.
 
 Need a way to create animations using the current functionality of the system.
