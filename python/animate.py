@@ -4,26 +4,44 @@ from mpl_toolkits.mplot3d import Axes3D
 from matplotlib.animation import FuncAnimation
 import ledcube as lc
 
+# Set the nxnxn number for example for a 5x5x5 enter a 5
 n = 5
-cube = lc.LedCube(n)
-cube1 = cube
 
-cube.change_led([0,0,0], 5) # Replace this with your own data
-cube2 = cube
+# Create a cube for each frame and define witch led to turn on
+cube1 = lc.LedCube(n)
+# Change the brightness of an led using the change led function:
+    # change_led([x, y, z], brightness_value_of_the_chosen_LED)
+cube1.change_led([0,0,0], 5) # Replace this with your own data
+
+cube2 = lc.LedCube(n)
+
+# Repeat the same thing as cube one
+cube2.change_led([0,0,0], 5)
 
 # create a columns around the first led
 for z in range(n):
-    cube.change_led([1,1,z], 5)
-    cube.change_led([0,1,z], 5)
-    cube.change_led([1,0,z], 5)
+    # Make a column at the x = 1, y = 1, position.
+    cube2.change_led([1,1,z], 5)
+    cube2.change_led([0,1,z], 5)
+    cube2.change_led([1,0,z], 5)
 
-cube3 = cube
+# Makes an empty cube
+cube3 = lc.LedCube(n)
 
-cubes = [cube1, cube2]
+# Start a wave
+cube4 = lc.LedCube(n)
+
+for i in range(n):
+    cube4.change_led([i,0,0], 5)
+    cube4.change_led([i,n-1,0], 5)
+
+# The places where the cube frames are stored
+cubes = [cube1, cube2, cube3, cube4]
 
 # Function to initialize the plot
 def init():
-    scatter = ax.scatter(cube1.x, cube1.y, cube1.z, c = cube1.brightness)
+    cube0 = lc.LedCube(n)
+    scatter = ax.scatter(cube0.x, cube0.y, cube0.z, c = cube0.brightness)
     return (ax,)
 
 # Function to update the plot at each frame
@@ -57,7 +75,7 @@ ax.set_ylabel('Y-axis')
 ax.set_zlabel('Z-axis')
 
 # Create the animation
-animation = FuncAnimation(fig, update, frames=range(2), init_func=init, blit=False, interval=1000)
+animation = FuncAnimation(fig, update, frames=range(len(cubes)), init_func=init, blit=False, interval=1000)
 
 # Show the animation
 plt.show()
