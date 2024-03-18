@@ -19,11 +19,11 @@ cube2 = lc.LedCube(n)
 cube2.change_led([0,0,0], 5)
 
 # create a columns around the first led
-for z in range(n):
+for k in range(n):
     # Make a column at the x = 1, y = 1, position.
-    cube2.change_led([1,1,z], 5)
-    cube2.change_led([0,1,z], 5)
-    cube2.change_led([1,0,z], 5)
+    cube2.change_led([1,1,k], 5)
+    cube2.change_led([0,1,k], 5)
+    cube2.change_led([1,0,k], 5)
 
 # Makes an empty cube
 cube3 = lc.LedCube(n)
@@ -35,8 +35,70 @@ for i in range(n):
     cube4.change_led([i,0,0], 5)
     cube4.change_led([i,n-1,0], 5)
 
+cube5 = lc.LedCube(n)
+for i in range(n):
+    # Left wave
+    cube5.change_led([i,0,0], 5)
+    cube5.change_led([i,0,1], 5)
+    cube5.change_led([i,1,0], 5)
+
+    # Right Wave 
+    cube5.change_led([i,n-1,0], 5)
+    cube5.change_led([i,n-1,1], 5)
+    cube5.change_led([i,n-2,0], 5)
+
+cube6 = lc.LedCube(n)
+for i in range(n):
+    # Left wave
+    cube6.change_led([i,0,0], 5)
+    cube6.change_led([i,1,0], 5)
+    cube6.change_led([i,1,1], 5)
+    cube6.change_led([i,2,0], 5)
+
+    # Right Wave 
+    cube6.change_led([i,n-2,0], 5)
+    cube6.change_led([i,n-2,1], 5)
+    cube6.change_led([i,n-3,0], 5)
+    cube6.change_led([i,n-1,0], 5)
+
+cube7 = lc.LedCube(n)
+for i in range(n):
+    # One Wave
+    cube7.change_led([i,1,0], 5)
+    cube7.change_led([i,2,0], 5)
+    cube7.change_led([i,2,1], 5)
+    cube7.change_led([i,2,2], 5)
+    cube7.change_led([i,2,3], 5)
+    cube7.change_led([i,n-2,0], 5)
+
+cube8 = lc.LedCube(n)
+for i in range(n):
+    # Left wave
+    cube8.change_led([i,0,0], 5)
+    cube8.change_led([i,1,0], 5)
+    cube8.change_led([i,1,1], 5)
+    cube8.change_led([i,2,0], 5)
+
+    # Right Wave 
+    cube8.change_led([i,n-2,0], 5)
+    cube8.change_led([i,n-2,1], 5)
+    cube8.change_led([i,n-3,0], 5)
+    cube8.change_led([i,n-1,0], 5)
+
+cube9 = lc.LedCube(n)
+for i in range(n):
+    # Left wave
+    cube9.change_led([i,0,0], 5)
+    cube9.change_led([i,0,1], 5)
+    cube9.change_led([i,1,0], 5)
+
+    # Right Wave 
+    cube9.change_led([i,n-1,0], 5)
+    cube9.change_led([i,n-1,1], 5)
+    cube9.change_led([i,n-2,0], 5)
+
 # The places where the cube frames are stored
-cubes = [cube1, cube2, cube3, cube4]
+cubes = [cube1, cube2, cube3, cube4, cube5, cube6, cube7, cube8, cube9]
 
 # Function to initialize the plot
 def init():
