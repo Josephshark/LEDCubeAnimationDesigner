@@ -43,9 +43,31 @@ for i in range(1,4):
         cube5.change_led([i,j,0], 5)
 cube5.change_led([2,2,0], 0)
 
+cube6 = lc.LedCube(n)
+for i in range(n):
+    cube6.change_led([i,0,0], 5)
+    cube6.change_led([i,4,0], 5)
+    cube6.change_led([0,i,0], 5)
+    cube6.change_led([4,i,0], 5)
+for i in range(1,4):
+    for j in range(1,4):
+        cube6.change_led([i,j,0], 0)
+cube6.change_led([2,2,0], 5)
+
+cube7 = lc.LedCube(n)
+cube7.change_led([2,2,1], 5)
+for i in range(n):
+    for j in range(n):
+        cube7.change_led([i,j,0], 5)
+cube7.change_led([2,2,0], 0)
+
+cube8 = lc.LedCube(n)
+for i in range(n):
+    for j in range(n):
+        cube8.change_led([i,j,0], 5)
 
 # The places where the cube frames are stored
-cubes = [cube1, cube2, cube3, cube4, cube5]
+cubes = [cube1, cube2, cube3, cube4, cube5, cube6, cube7, cube8]
 
 # Function to initialize the plot
 def init():
@@ -84,7 +106,7 @@ ax.set_ylabel('Y-axis')
 ax.set_zlabel('Z-axis')
 
 # Create the animation
-animation = FuncAnimation(fig, update, frames=range(len(cubes)), init_func=init, blit=False, interval=500)
+animation = FuncAnimation(fig, update, frames=range(len(cubes)), init_func=init, blit=False, interval=100)
 
 # Show the animation
 plt.show()
