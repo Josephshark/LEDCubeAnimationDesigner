@@ -115,7 +115,7 @@ ax.set_ylabel('Y-axis')
 ax.set_zlabel('Z-axis')
 
 # Create the animation
-animation = FuncAnimation(fig, update, frames=range(len(cubes)), init_func=init, blit=False, interval=100)
+animation = FuncAnimation(fig, update, frames=range(len(cubes)), init_func=init, blit=False, interval=1000)
 
 # Show the animation
 plt.show()
