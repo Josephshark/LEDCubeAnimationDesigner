@@ -10,6 +10,10 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 # LEDCubeAnimationDesigner
 A high level design of a program to create an animation for 5x5x5 LED cube.
 
+## Use the example droplet animation and random animation for tips
+![image](https://github.com/Josephshark/LEDCubeAnimationDesigner/assets/39276421/635a97a8-9437-48b5-a2ad-30b1c8fe584a)
+
+
 ## Constructor
 LedCube(n) - Returns an nxnxn LedCube object with the following attributes:
         
